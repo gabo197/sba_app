@@ -43,7 +43,7 @@ class _HomeState extends State<Home> {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              'SBA',
+              'SBAA',
               style: Theme.of(context).textTheme.headline6,
             ),
             //actions: [
