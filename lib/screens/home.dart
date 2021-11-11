@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../models/models.dart';
 import 'home_screen.dart';
+import 'profile_screen.dart';
 
 class Home extends StatefulWidget {
   static MaterialPage page(int currentTab) {
@@ -29,7 +30,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
     HomeScreen(),
-    //ProfileScreen(),
+    ProfileScreen(),
   ];
 
   @override
