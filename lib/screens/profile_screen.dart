@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sba_app/components/info.dart';
+import 'package:sba_app/models/models.dart';
 import '../components/components.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -60,7 +62,15 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             RoundedButton(text: "Cambiar contraseña", press: () {}),
-            RoundedButton(text: "Cerrar sesión", press: () {})
+            RoundedButton(
+                text: "Cerrar sesión",
+                press: () {
+                  // 1
+                  Provider.of<ProfileManager>(context, listen: false)
+                      .tapOnProfile(false);
+                  // 2
+                  Provider.of<AppStateManager>(context, listen: false).logout();
+                })
           ],
         ),
       ),

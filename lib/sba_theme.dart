@@ -87,7 +87,7 @@ class SbaTheme {
         backgroundColor: Colors.black,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
+        selectedItemColor: kPrimaryColor,
       ),
       textTheme: lightTextTheme,
     );
@@ -105,7 +105,7 @@ class SbaTheme {
         backgroundColor: Colors.green,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: Colors.green,
+        selectedItemColor: kPrimaryColor,
       ),
       textTheme: darkTextTheme,
     );
