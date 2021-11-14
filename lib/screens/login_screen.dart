@@ -3,6 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sba_app/navigation/app_link.dart';
+import 'package:sba_app/screens/screens.dart';
 import '../components/components.dart';
 import 'package:sba_app/sba_theme.dart';
 
@@ -108,7 +109,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CustomerRegisterScreen(),
+                            ),
+                          );
+                        },
                         child: Text(
                           "Regístrate",
                           style: const TextStyle(

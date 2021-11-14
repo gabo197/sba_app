@@ -11,11 +11,13 @@ class APIUser {
   @JsonKey(name: 'id')
   int id;
   String email;
+  String userType;
   String password;
 
   APIUser({
     required this.id,
     required this.email,
+    required this.userType,
     required this.password,
   });
 }

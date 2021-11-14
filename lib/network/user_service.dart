@@ -7,7 +7,8 @@ import 'user_model.dart';
 const String apiUrl = 'https://immense-garden-67436.herokuapp.com/api/user';
 
 class UserService {
-  Future<APIUser> createUser(String email, String password) async {
+  Future<APIUser> createUser(
+      String email, String password, String userType) async {
     final response = await http.post(
       Uri.parse(apiUrl),
       headers: <String, String>{
@@ -16,6 +17,7 @@ class UserService {
       body: jsonEncode(<String, String>{
         'email': email,
         'password': password,
+        'userType': userType,
       }),
     );
 
