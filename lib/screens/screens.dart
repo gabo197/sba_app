@@ -3,3 +3,7 @@ export 'login_screen.dart';
 export 'onboarding_screen.dart';
 export 'splash_screen.dart';
 export 'home_screen.dart';
+export 'welcome_screen.dart';
+export 'customer_register_screen.dart';
+export 'technician_register_screen.dart';
+export 'choose_specialty.dart';
