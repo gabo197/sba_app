@@ -5,3 +5,7 @@ export 'rounded_button.dart';
 export 'info.dart';
 export 'categories.dart';
 export 'popular_specialties.dart';
+export 'already_have_an_account_check.dart';
+export 'or_divider.dart';
+export 'social_icon.dart';
+export 'rounded_button_with_icon.dart';
