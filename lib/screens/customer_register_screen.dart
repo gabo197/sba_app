@@ -4,9 +4,7 @@ import '../components/components.dart';
 import 'screens.dart';
 
 class CustomerRegisterScreen extends StatelessWidget {
-  final Widget child;
-  const CustomerRegisterScreen({Key? key, required this.child})
-      : super(key: key);
+  const CustomerRegisterScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

@@ -3,9 +3,7 @@ import '../components/components.dart';
 import 'screens.dart';
 
 class TechnicianRegisterScreen extends StatelessWidget {
-  final Widget child;
-  const TechnicianRegisterScreen({Key? key, required this.child})
-      : super(key: key);
+  const TechnicianRegisterScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
