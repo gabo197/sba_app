@@ -6,4 +6,6 @@ class SbaPages {
   static String profilePath = '/profile';
   static String customerSignUpPath = '/customerSignUp';
   static String technicianSignUpPath = '/technicianSignUp';
+  static String chooseRolePath = '/chooseRole';
+  static String welcomePath = '/welcome';
 }

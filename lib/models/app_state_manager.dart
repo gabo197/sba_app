@@ -13,12 +13,16 @@ class AppStateManager extends ChangeNotifier {
   bool _initialized = false;
   bool _loggedIn = false;
   bool _onboardingComplete = false;
+  bool _signedUp = true;
+  bool _signupComplete = true;
   int _selectedTab = SbaTab.home;
   final _appCache = AppCache();
 
   bool get isInitialized => _initialized;
   bool get isLoggedIn => _loggedIn;
   bool get isOnboardingComplete => _onboardingComplete;
+  bool get isSignedUp => _signedUp;
+  bool get isSignupComplete => _signupComplete;
   int get getSelectedTab => _selectedTab;
 
   void initializeApp() async {
@@ -26,7 +30,7 @@ class AppStateManager extends ChangeNotifier {
     _onboardingComplete = await _appCache.didCompleteOnboarding();
 
     Timer(
-      const Duration(milliseconds: 2000),
+      const Duration(milliseconds: 1000),
       () {
         _initialized = true;
         notifyListeners();
@@ -39,6 +43,13 @@ class AppStateManager extends ChangeNotifier {
     await _appCache.cacheUser();
     notifyListeners();
   }
+
+  void customerSignup() async {
+    _signupComplete = true;
+    notifyListeners();
+  }
+
+  void technicianSignup() async {}
 
   void completeOnboarding() async {
     _onboardingComplete = true;

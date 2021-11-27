@@ -12,6 +12,9 @@ APIUser _$APIUserFromJson(Map<String, dynamic> json) {
     email: json['email'] as String,
     userType: json['userType'] as String,
     password: json['password'] as String,
+    address: json['address'] == null
+        ? null
+        : Address.fromJson(json['address'] as Map<String, dynamic>),
   );
 }
 
@@ -20,4 +23,5 @@ Map<String, dynamic> _$APIUserToJson(APIUser instance) => <String, dynamic>{
       'email': instance.email,
       'userType': instance.userType,
       'password': instance.password,
+      'address': instance.address,
     };
