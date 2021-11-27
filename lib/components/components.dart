@@ -11,3 +11,5 @@ export 'social_icon.dart';
 export 'rounded_button_with_icon.dart';
 export 'popular_technicians.dart';
 export 'drop_down_button.dart';
+export 'rounded_input_field_edit.dart';
+export 'chip_for_row.dart';

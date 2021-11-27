@@ -122,6 +122,38 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                children: [
+                  Text(
+                    "Especialidades",
+                    style: Theme.of(context).textTheme.headline3,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Wrap(
+                  children: [
+                    ChipForRow(label: 'Limpieza', color: Colors.redAccent),
+                    ChipForRow(label: 'Pintura', color: Colors.orangeAccent),
+                    ChipForRow(label: 'Desinfección', color: Colors.blueAccent),
+                    ChipForRow(label: 'Cerrajería', color: Colors.lightGreen),
+                    ChipForRow(label: 'Gasfitería', color: Colors.pinkAccent),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

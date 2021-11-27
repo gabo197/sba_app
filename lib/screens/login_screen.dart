@@ -165,6 +165,8 @@ class _LoginScreenState extends State<LoginScreen> {
           } else {
             Provider.of<AppStateManager>(context, listen: false)
                 .login('mockUsername', 'mockPassword');
+            Provider.of<AppStateManager>(context, listen: false)
+                .completeOnboarding();
           }
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');

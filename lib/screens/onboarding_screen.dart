@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/parser.dart';
 
 import 'package:provider/provider.dart';
+import 'package:sba_app/sba_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../models/models.dart';
@@ -23,7 +24,7 @@ class OnboardingScreen extends StatefulWidget {
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final controller = PageController();
-  final Color rwColor = const Color.fromRGBO(64, 143, 77, 1);
+  final Color rwColor = kPrimaryColor;
 
   @override
   Widget build(BuildContext context) {

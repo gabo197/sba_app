@@ -2,15 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:sba_app/components/info.dart';
 import '../components/components.dart';
 
-class TechnicianProfileScreen extends StatelessWidget {
+class TechnicianProfileScreen extends StatefulWidget {
   const TechnicianProfileScreen({Key? key}) : super(key: key);
 
+  @override
+  State<TechnicianProfileScreen> createState() =>
+      _TechnicianProfileScreenState();
+}
+
+class _TechnicianProfileScreenState extends State<TechnicianProfileScreen> {
+  bool editMode = false;
   @override
   Widget build(BuildContext context) {
     var name = "";
     var email = "";
     var telefono = "";
-    var distrito = "";
+    var district = "";
 
     return Container(
       child: SingleChildScrollView(
@@ -26,39 +33,59 @@ class TechnicianProfileScreen extends StatelessWidget {
               //style: SbaTheme.of(context),
             ),
             const SizedBox(height: 8),
-            RoundedInputField(
+            RoundedInputFieldEdit(
               hintText: "Nombre",
               icon: Icons.person,
+              enabled: (editMode == false) ? false : true,
               onChanged: (value) {
                 name = value;
               },
             ),
-            RoundedInputField(
+            RoundedInputFieldEdit(
               hintText: "Email",
               icon: Icons.email,
+              enabled: (editMode == false) ? false : true,
               onChanged: (value) {
                 email = value;
               },
             ),
-            RoundedInputField(
+            RoundedInputFieldEdit(
               hintText: "Teléfono",
               icon: Icons.phone,
+              enabled: (editMode == false) ? false : true,
               onChanged: (value) {
                 telefono = value;
               },
             ),
-            RoundedInputField(
-              hintText: "Distrito",
+            DropDownButton(
               icon: Icons.map,
-              onChanged: (value) {
-                distrito = value;
-              },
+              hintText: "Distrito",
+              onChanged: (editMode == false)
+                  ? null
+                  : (value) {
+                      district = value!;
+                    },
             ),
             const SizedBox(height: 8),
             const Text(
               "Ajustes",
             ),
             const SizedBox(height: 8),
+            (editMode == false)
+                ? RoundedButton(
+                    text: "Editar perfil",
+                    press: () {
+                      setState(() {
+                        editMode = true;
+                      });
+                    })
+                : RoundedButton(
+                    text: "Aceptar",
+                    press: () {
+                      setState(() {
+                        editMode = false;
+                      });
+                    }),
             RoundedButton(text: "Cambiar especialidades", press: () {}),
             RoundedButton(text: "Cambiar contraseña", press: () {}),
             RoundedButton(text: "Cerrar sesión", press: () {})
