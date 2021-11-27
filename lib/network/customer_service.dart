@@ -2,25 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'technician_model.dart';
+import 'customer_model.dart';
+import 'constants.dart';
 
-const String apiUrl =
-    'https://immense-garden-67436.herokuapp.com/api/technician';
-
-List<Technician> parseTechnicians(String responseBody) {
-  final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
-
-  return parsed.map<Technician>((json) => Technician.fromJson(json)).toList();
-}
-
-class TechnicianService {
-  Future<List<Technician>> fetchTechnicians(http.Client client) async {
-    final response = await client.get(Uri.parse(apiUrl));
-
-    return compute(parseTechnicians, response.body);
-  }
-
-  Future<Technician> createTechnician(
+class CustomerService {
+  Future<Customer> createCustomer(
       String firstName,
       String lastName,
       String imageUrl,
@@ -28,7 +14,7 @@ class TechnicianService {
       String phoneNumber,
       int userId) async {
     final response = await http.post(
-      Uri.parse('$apiUrl?userId=$userId'),
+      Uri.parse('$apiUrl/customer?userId=$userId'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
         'Authorization':
@@ -44,7 +30,7 @@ class TechnicianService {
     );
 
     if (response.statusCode == 200) {
-      return Technician.fromJson(jsonDecode(response.body));
+      return Customer.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Error al crear el customer');
     }

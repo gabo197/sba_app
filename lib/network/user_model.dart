@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:sba_app/network/address_model.dart';
 
 part 'user_model.g.dart';
 
@@ -11,11 +12,14 @@ class APIUser {
   @JsonKey(name: 'id')
   int id;
   String email;
+  String userType;
   String password;
+  Address? address;
 
-  APIUser({
-    required this.id,
-    required this.email,
-    required this.password,
-  });
+  APIUser(
+      {required this.id,
+      required this.email,
+      required this.userType,
+      required this.password,
+      this.address});
 }

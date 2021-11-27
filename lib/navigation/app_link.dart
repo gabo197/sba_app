@@ -3,6 +3,10 @@ class AppLink {
   static const String kOnboardingPath = '/onboarding';
   static const String kLoginPath = '/login';
   static const String kProfilePath = '/profile';
+  static const String kCustomerSignUpPath = '/customerSignUp';
+  static const String kTechnicianSignUpPath = '/technicianSignUp';
+  static const String kChooseRolePath = '/chooseRole';
+  static const String kWelcomePath = '/welcome';
 
   static const String kTabParam = 'tab';
   static const String kIdParam = 'id';
@@ -45,6 +49,18 @@ class AppLink {
 
       case kProfilePath:
         return kProfilePath;
+
+      case kCustomerSignUpPath:
+        return kCustomerSignUpPath;
+
+      case kTechnicianSignUpPath:
+        return kTechnicianSignUpPath;
+
+      case kChooseRolePath:
+        return kChooseRolePath;
+
+      case kWelcomePath:
+        return kWelcomePath;
 
       default:
         var loc = '$kHomePath?';

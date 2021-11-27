@@ -8,6 +8,6 @@ export 'customer_register_screen.dart';
 export 'technician_register_screen.dart';
 export 'technician_profile_screen.dart';
 export 'choose_specialty.dart';
-export 'choose_rol.dart';
+export 'choose_role.dart';
 export 'customer_profile_screen.dart';
 export 'profile_screen.dart';

@@ -4,15 +4,17 @@ import 'dart:convert';
 class UserAuth {
   final int? id;
   final String? email;
+  final String? userType;
   final String? token;
   final String? message;
 
-  UserAuth({this.id, this.email, this.token, this.message});
+  UserAuth({this.id, this.email, this.userType, this.token, this.message});
 
   factory UserAuth.fromJson(Map<String, dynamic> json) {
     return UserAuth(
         id: json['id'],
         email: json['email'],
+        userType: json['userType'],
         token: json['token'],
         message: json['message']);
   }
@@ -34,6 +36,6 @@ Future<UserAuth> attemptLogin(String email, String password) async {
   if (response.statusCode == 200 || response.statusCode == 400) {
     return UserAuth.fromJson(jsonDecode(response.body));
   } else {
-    throw Exception('ke');
+    throw Exception();
   }
 }
