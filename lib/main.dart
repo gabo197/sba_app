@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'sba_theme.dart';
 import 'models/models.dart';
 import 'navigation/app_route_parser.dart';

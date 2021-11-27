@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             const Image(
               height: 200,
-              image: AssetImage('assets/icons/hammer-icon-blue.png'),
+              image: AssetImage('assets/images/letra-s.png'),
             )
           ],
         ),

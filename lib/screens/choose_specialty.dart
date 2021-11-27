@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sba_app/network/specialty_model.dart';
 import 'package:sba_app/screens/screens.dart';
 import '../components/components.dart';
 import '../sba_theme.dart';
@@ -16,6 +17,16 @@ class ChooseSpecialtyScreen extends StatefulWidget {
 }
 
 class _ChooseSpecialtyScreenState extends State<ChooseSpecialtyScreen> {
+  late List<Specialty> _specialties;
+  late List<String> _filters;
+
+  @override
+  void initState() {
+    super.initState();
+    _filters = <String>[];
+    _specialties = <Specialty>[Specialty(id: 0, name: 'ugu')];
+  }
+
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -114,6 +125,9 @@ class _ChooseSpecialtyScreenState extends State<ChooseSpecialtyScreen> {
               SizedBox(
                 height: size.height * 0.03,
               ),
+              Wrap(
+                children: specialtyWidgets.toList(),
+              ),
               RoundedButton(
                 text: "Regístrate",
                 press: () {
@@ -133,5 +147,33 @@ class _ChooseSpecialtyScreenState extends State<ChooseSpecialtyScreen> {
         ),
       ),
     );
+  }
+
+  Iterable<Widget> get specialtyWidgets sync* {
+    for (Specialty specialty in _specialties) {
+      yield Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: FilterChip(
+          avatar: CircleAvatar(
+            child: Text(
+              specialty.name[0].toUpperCase(),
+            ),
+          ),
+          label: Text(specialty.name),
+          selected: _filters.contains(specialty.name),
+          onSelected: (bool selected) {
+            setState(() {
+              if (selected) {
+                _filters.add(specialty.name);
+              } else {
+                _filters.removeWhere((String name) {
+                  return name == specialty.name;
+                });
+              }
+            });
+          },
+        ),
+      );
+    }
   }
 }

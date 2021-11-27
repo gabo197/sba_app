@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sba_app/components/info.dart';
+import 'package:sba_app/models/app_state_manager.dart';
+import 'package:sba_app/models/profile_manager.dart';
 import '../components/components.dart';
 
-class TechnicianProfileScreen extends StatefulWidget {
-  const TechnicianProfileScreen({Key? key}) : super(key: key);
+class CustomerProfileScreen extends StatefulWidget {
+  const CustomerProfileScreen({Key? key}) : super(key: key);
 
   @override
-  State<TechnicianProfileScreen> createState() =>
-      _TechnicianProfileScreenState();
+  State<CustomerProfileScreen> createState() => _CustomerProfileScreenState();
 }
 
-class _TechnicianProfileScreenState extends State<TechnicianProfileScreen> {
+class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
   bool editMode = false;
   @override
   Widget build(BuildContext context) {
     var name = "";
     var email = "";
     var telefono = "";
-    var district = "";
+    var district = "Ancón";
 
     return Container(
       child: SingleChildScrollView(
@@ -25,7 +27,7 @@ class _TechnicianProfileScreenState extends State<TechnicianProfileScreen> {
           children: <Widget>[
             Info(
               image: "assets/images/Yuppies - Remote from Living Room.png",
-              name: "David Aguirre",
+              name: "Laura Torres",
             ),
             const SizedBox(height: 8),
             const Text(
@@ -86,9 +88,16 @@ class _TechnicianProfileScreenState extends State<TechnicianProfileScreen> {
                         editMode = false;
                       });
                     }),
-            RoundedButton(text: "Cambiar especialidades", press: () {}),
             RoundedButton(text: "Cambiar contraseña", press: () {}),
-            RoundedButton(text: "Cerrar sesión", press: () {})
+            RoundedButton(
+                text: "Cerrar sesión",
+                press: () {
+                  // 1
+                  Provider.of<ProfileManager>(context, listen: false)
+                      .tapOnProfile(false);
+                  // 2
+                  Provider.of<AppStateManager>(context, listen: false).logout();
+                }),
           ],
         ),
       ),
