@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sba_app/components/info.dart';
 import '../components/components.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+class TechnicianProfileScreen extends StatelessWidget {
+  const TechnicianProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
