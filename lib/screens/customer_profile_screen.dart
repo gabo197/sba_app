@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:sba_app/components/info.dart';
 import 'package:sba_app/models/app_state_manager.dart';
 import 'package:sba_app/models/profile_manager.dart';
+import 'package:sba_app/screens/change_password_screen.dart';
 import '../components/components.dart';
 
 class CustomerProfileScreen extends StatefulWidget {
@@ -88,7 +89,16 @@ class _CustomerProfileScreenState extends State<CustomerProfileScreen> {
                         editMode = false;
                       });
                     }),
-            RoundedButton(text: "Cambiar contraseña", press: () {}),
+            RoundedButton(
+                text: "Cambiar contraseña",
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChangePasswordScreen(),
+                    ),
+                  );
+                }),
             RoundedButton(
                 text: "Cerrar sesión",
                 press: () {
