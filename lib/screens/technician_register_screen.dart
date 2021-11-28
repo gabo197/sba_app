@@ -203,7 +203,11 @@ class _TechnicianRegisterScreenState extends State<TechnicianRegisterScreen> {
           SchedulerBinding.instance!.addPostFrameCallback((_) => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ChooseSpecialtyScreen(),
+                  builder: (context) => ChooseSpecialtyScreen(
+                    userId: userId,
+                    email: email,
+                    password: password,
+                  ),
                 ),
               ));
         } else if (snapshot.hasError) {

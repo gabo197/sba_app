@@ -45,36 +45,40 @@ class TechniciansList extends StatelessWidget {
             },
             itemCount: technicians.length,
             itemBuilder: (context, index) {
-              return Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      width: 100,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image.network(
-                          '${technicians[index].imageUrl}',
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, object, stackTrace) {
-                            return Icon(Icons.error);
-                          },
+              return GestureDetector(
+                onTap: () => ScaffoldMessenger.of(context)
+                    .showSnackBar(SnackBar(content: Text(index.toString()))),
+                child: Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 100,
+                        width: 100,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.network(
+                            '${technicians[index].imageUrl}',
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, object, stackTrace) {
+                              return Icon(Icons.error);
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    Text(
-                      '${technicians[index].firstName} ${technicians[index].lastName}',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    Text(
-                      '${technicians[index].phoneNumber}',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                  ],
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        '${technicians[index].firstName} ${technicians[index].lastName}',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                      Text(
+                        '${technicians[index].phoneNumber}',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },

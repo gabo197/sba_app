@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sba_app/navigation/app_link.dart';
 import 'package:sba_app/screens/screens.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../components/components.dart';
 import 'package:sba_app/sba_theme.dart';
 
@@ -167,6 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 .login('mockUsername', 'mockPassword');
             Provider.of<AppStateManager>(context, listen: false)
                 .completeOnboarding();
+            SharedPreferences.getInstance();
           }
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');

@@ -30,7 +30,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   static List<Widget> pages = <Widget>[
     HomeScreen(),
-    ChooseSpecialtyScreen(),
+    CustomerProfileScreen(),
   ];
 
   @override
@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
               style: Theme.of(context).textTheme.headline6,
             ),
             //actions: [
-            //  profileButton(),
+            //  profileButton();
             //],
           ),
           body: IndexedStack(
